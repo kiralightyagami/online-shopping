@@ -25,16 +25,20 @@
 
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.css" rel="stylesheet">
-
+    
+<!-- Bootstrap theme CSS -->
+    <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
     <!-- Add custom CSS here -->
     <link href="${css}/myapp.css" rel="stylesheet">
 
 </head>
 
 <body>
+<div class="wrapper">
 <!-- --Navigation -->
 <%@include file="./shared/navbar.jsp" %>
 <!-- -Page Content -->
+<div class="content">
 <!-- When Home Page is clicked -->
 <c:if test="${userClickHome ==true }">
 <%@include file="home.jsp" %>
@@ -48,6 +52,7 @@
 <%@include file="contact.jsp" %>
 </c:if>
     <!-- /.container -->
+    </div>
 <!-- Footer -->
 <%@include file="./shared/footer.jsp" %>
     <!-- /.container -->
@@ -57,7 +62,7 @@
     <script src="${js}/bootstrap.js"></script>
     <!-- My own coded javascript -->
     <script src="${js}/myapp.js"></script>
-
+</div>
 </body>
 
 </html>
