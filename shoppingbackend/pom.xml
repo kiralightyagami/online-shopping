@@ -53,12 +53,7 @@
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.1.1</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-digester</groupId>
-			<artifactId>commons-digester</artifactId>
-			<version>2.1</version>
-		</dependency>
-	
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -71,6 +66,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 	</build>
 </project>

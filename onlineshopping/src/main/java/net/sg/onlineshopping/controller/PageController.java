@@ -48,6 +48,7 @@ public class PageController {
   @RequestMapping(value="/show/all/products")
   public ModelAndView showAllProducts()
   {
+	  System.out.println("in this");
 	  ModelAndView mv=new ModelAndView("page");
 	  
 	  mv.addObject("title","All Products");
