@@ -27,7 +27,7 @@ public class HibernateConfig {
 	
 	//datasource bean will be available
 	@Bean
-	private DataSource getDataSource()
+	public DataSource getDataSource()
 	{
 		BasicDataSource datasource=new BasicDataSource();
 		
@@ -49,7 +49,7 @@ public class HibernateConfig {
 		return builder.buildSessionFactory();
 	}
 //all hibernate properties will be returned here
-	private Properties getHibernateProperties() {
+	public Properties getHibernateProperties() {
 		Properties properties=new Properties();
 		
 		properties.put("hibernate.dialect",DATABASE_DIALECT);

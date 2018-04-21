@@ -1,9 +1,9 @@
 package net.sg.shoppingbackend.daoimpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,70 +12,67 @@ import net.sg.shoppingbackend.dao.CategoryDAO;
 import net.sg.shoppingbackend.dto.Category;
 
 @Repository("categoryDAO")
-public class CategoryDAOImpl implements CategoryDAO{
+@Transactional
+public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
 	SessionFactory sessionFactory;
-	private static List<Category> categories=new ArrayList<>();
-	
-	static {
-		
-		Category category=new Category();
-		
-		category.setId(1);
-		category.setImageURL("CAT.png");
-		category.setName("Televison");
-		category.setDescription("this is a TV");
-		categories.add(category);
-		
 
-		Category category1=new Category();
-		
-		category1.setId(2);
-		category1.setImageURL("BAT.png");
-		category1.setName("Mobile");
-		category1.setDescription("this is a mobile");
-		categories.add(category1);
-		
-
-
-		Category category2=new Category();
-		
-		category2.setId(3);
-		category2.setImageURL("XAT.png");
-		category2.setName("Laptop");
-		category2.setDescription("this is a laptop");
-		categories.add(category2);
-		
-	}
 	@Override
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return categories;
+		String selectActiveCategory="FROM Category WHERE active= :active";
+		
+		Query query=sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+		
+		query.setParameter("active", true);
+		
+		return query.getResultList();
 	}
+
+	// getting single category based on id
 	@Override
 	public Category get(int id) {
 
-     for(Category category:categories)
-     {
-    	 if(category.getId()==id)
-    		 return category;
-     }
-		return null;
+		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
 	}
+
 	@Override
-	@Transactional
+
 	public boolean add(Category category) {
 		try {
-			//adding category in databse
+			// adding category in databse
 			sessionFactory.getCurrentSession().persist(category);
 			return true;
-		}catch(Exception ex)
-		{
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return false;
 		}
-		
+
+	}
+//updating a single category
+	@Override
+	public boolean update(Category category) {
+		try {
+			// adding category in databse
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean delete(Category category) {
+		category.setActive(false);
+		try {
+			// adding category in databse
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 }
