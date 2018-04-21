@@ -14,6 +14,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.3.6.RELEASE</spring.version>
+		<jackson.version>2.8.7</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -55,7 +56,8 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.193</version>
 		</dependency>
-<!-- If error occurs for poolable Connection Factory the set version as 1.4.195 -->
+		<!-- If error occurs for poolable Connection Factory the set version as 
+			1.4.195 -->
 
 
 		<!-- databse connection pooling -->
@@ -79,6 +81,24 @@
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.2.11</version>
+		</dependency>
+		<!-- jackson test -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.7</version>
 		</dependency>
 
 	</dependencies>
