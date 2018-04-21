@@ -55,7 +55,7 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.193</version>
 		</dependency>
-
+<!-- If error occurs for poolable Connection Factory the set version as 1.4.195 -->
 
 
 		<!-- databse connection pooling -->
