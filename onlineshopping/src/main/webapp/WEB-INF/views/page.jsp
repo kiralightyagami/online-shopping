@@ -65,6 +65,8 @@
     <!-- JavaScript -->
     <script src="${js}/jquery.js"></script>
     <script src="${js}/bootstrap.js"></script>
+    <!-- Jquery datatble -->
+    <script src="${js}/jquery.dataTables.js"></script>
     <!-- My own coded javascript -->
     <script src="${js}/myapp.js"></script>
 </div>
