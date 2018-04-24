@@ -1,7 +1,7 @@
-$(function(){
-	
-	switch(menu){
-	
+$(function() {
+
+	switch (menu) {
+
 	case 'About Us':
 		$('#about').addClass('active');
 		break;
@@ -11,50 +11,70 @@ $(function(){
 	case 'All Products':
 		$('#listOfProducts').addClass('active');
 		break;
-		
+
 	default:
-		if(menu=='Home') break;
+		if (menu == 'Home')
+			break;
 		$('#listOfProducts').addClass('active');
-	    $('#a_'+menu).addClass('active');
+		$('#a_' + menu).addClass('active');
 		break;
 	}
 })
 
-
 // code for jquery datatable
+var $table = $('#productListTable');
 
-var products=[
-	          ['1','ABC'],
-	          ['2','MNO'],
-	          ['3','ABe'],
-	          ['4','lBC'],
-	          ['5','AGC'],
-	          ['6','ABH'],
-	          ['7','KBC'],
-	          ['8','JBC'],
-	];
+// execute only if the table is availabe
 
-var $table=$('#productListTable');
+if ($table.length) {
+	// console.log('in table');
 
-//execute only if the table is availabe
-
-if($table.length)
-	{
-	//console.log('in table');
-	$table.DataTable({
-		
-		lengthMenu:[[3,5,10,-1],['3 records','5 records','10 records','all records']],
-		pageLength:5,
-		data:products
-		
-	});
+	var jsonUrl ='';
+	if (window.categoryId =='') {
+		jsonUrl = window.contextRoot + '/json/data/all/products';
+	} else {
+		jsonUrl = window.contextRoot + '/json/data/category/'+window.categoryId+'/products';
 	}
 
+	$table.DataTable({
 
+		lengthMenu : [ [ 3, 5, 10, -1 ],
+				[ '3 records', '5 records', '10 records', 'all records' ] ],
+		pageLength : 5,
+		ajax : {
+			url : jsonUrl,
+			dataSrc :''
+		},
+		columns : [ 
+			{
+				data : 'code',
+				mRender: function(data,type,row){
+			    	return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="dataTableImg"/>'
+			    }
+			},{
+			data : 'name'
+		}, {
+			data : 'brand'
+		}, {
+			data : 'unitPrice',
+		    mRender: function(data,type,row){
+		    	return '&#8377; '+data
+		    }
+		}, {
+			data : 'quantity'
+		},
+		{
+			data : 'id',
+			bSortable:false,
+			mRender: function(data,type,row){
+		    	var str='';
+		    	str+='<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160'; 
+		    	str+='<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>'; 
+		    	return str;
+		    }
+		}
 
+		]
 
-
-
-
-
-
+	});
+}
