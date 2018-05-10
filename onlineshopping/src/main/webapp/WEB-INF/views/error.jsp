@@ -4,8 +4,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -38,7 +37,36 @@
 <body>
 	<div class="wrapper">
 		<!-- --Navigation -->
-		<%@include file="./shared/navbar.jsp"%>
+		<!-- --Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="${contextRoot}/home">Home</a>
+				</div>
+
+			</div>
+			<!-- /.container -->
+		</nav>
+		<div class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12"></div>
+					<div class="jumbotron">
+						<h1>${errorTitle}</h1>
+						<hr/>
+
+						<blockquote style="word-wrap:break-word">${errorDescription}</blockquote>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+
+		</div>
+
 		<!-- -Page Content -->
 		<div class="content">
 			<!-- When Home Page is clicked -->
