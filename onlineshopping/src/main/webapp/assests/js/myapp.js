@@ -11,6 +11,9 @@ $(function() {
 	case 'All Products':
 		$('#listOfProducts').addClass('active');
 		break;
+	case 'Manage Products':
+		$('#manageProduct').addClass('active');
+		break;
 
 	default:
 		if (menu == 'Home')

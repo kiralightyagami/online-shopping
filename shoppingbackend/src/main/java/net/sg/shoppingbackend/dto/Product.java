@@ -32,6 +32,8 @@ public class Product {
 	@Column(name="supplier_id")
 	@JsonIgnore
 	private int supplierId;
+	private int purchases;
+	private int views;
 	public int getId() {
 		return id;
 	}
@@ -109,7 +111,6 @@ public class Product {
 	public void setViews(int views) {
 		this.views = views;
 	}
-	private int purchases;
-	private int views;
+	
 	
 }
