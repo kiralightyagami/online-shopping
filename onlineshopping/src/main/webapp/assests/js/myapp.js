@@ -97,7 +97,7 @@ if ($table.length) {
 }
 
 
-//dismiss lert after 3 seconds
+//dismiss alert after 3 seconds
  var $alert=$('.alert');
  
  if($alert.length)
