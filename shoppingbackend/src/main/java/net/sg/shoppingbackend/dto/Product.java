@@ -112,5 +112,10 @@ public class Product {
 		this.views = views;
 	}
 	
+	//toString for debugging
+	public String toString()
+	{
+		return "Product [id="+id+",code="+code+",name="+name+",brand="+brand+",description="+description+",unitPrice="+unitPrice+",quantity="+quantity+",active="+active+",categorytId="+categoryId+",supplierId="+supplierId+"purchase="+purchases+",views="+views+"]";
+	}
 	
 }

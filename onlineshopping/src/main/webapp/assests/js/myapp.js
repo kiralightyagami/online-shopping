@@ -22,7 +22,7 @@ $(function() {
 		$('#a_' + menu).addClass('active');
 		break;
 	}
-})
+
 
 // code for jquery datatable
 var $table = $('#productListTable');
@@ -34,7 +34,7 @@ if ($table.length) {
 
 	var jsonUrl ='';
 	if (window.categoryId =='') {
-		jsonUrl = window.contextRoot + '/json/data/all/products';
+		jsonUrl = window.contextRoot + '/json/data/all/products';	
 	} else {
 		jsonUrl = window.contextRoot + '/json/data/category/'+window.categoryId+'/products';
 	}
@@ -95,3 +95,16 @@ if ($table.length) {
 
 	});
 }
+
+
+//dismiss lert after 3 seconds
+ var $alert=$('.alert');
+ 
+ if($alert.length)
+	 {
+	 setTimeout(function(){
+		 $alert.fadeOut('slow');	 
+	 },3000)
+	 }
+
+});

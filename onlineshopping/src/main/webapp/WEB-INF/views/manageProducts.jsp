@@ -1,9 +1,20 @@
-<%@taglib prefix="sf"  uri="http://www.springframework.org/tags/form"%>	<!--Spring form tag lib  -->
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<!--Spring form tag lib  -->
 
 
 <div class="container">
 	<div class="row">
+		<c:if test="${not empty message}">
+			<div class="col-xs-12">
 
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+					${message}
+				</div>
+
+			</div>
+		</c:if>
 		<div class="col-md-offset-2 col-md-8">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -14,7 +25,8 @@
 			<div class="panel-body">
 
 				<!-- Form elements -->
-				<sf:form class="form-horizontal" modelAttribute="product">
+				<sf:form class="form-horizontal" modelAttribute="product"
+					action="${contextRoot}/manage/products" method="POST">
 
 					<div class="form-group">
 
@@ -57,8 +69,8 @@
 
 						<div class="col-md-8">
 							<sf:textarea path="description" id="description"
-								placeholder="Write a description" class="form-control"/>
-						
+								placeholder="Write a description" class="form-control" />
+
 
 						</div>
 
@@ -102,14 +114,10 @@
 						<div class="col-md-8">
 
 							<sf:select class="form-control" path="categoryId" id="categoryId"
-							items="${categories}"
-							itemLabel="name"
-							itemValue="id"
-							
-							/>
-							
-								
-							
+								items="${categories}" itemLabel="name" itemValue="id" />
+
+
+
 
 
 						</div>
@@ -122,14 +130,14 @@
 
 							<input type="submit" name="submit" id="submit" value="Submit"
 								class="btn btn-primary" />
-								
-								<!--  Hidden fields for products-->
-								<sf:hidden path="id"/>
-								<sf:hidden path="code"/>
-								<sf:hidden path="supplierId"/>
-								<sf:hidden path="purchases"/>
-								<sf:hidden path="views"/>
-								<sf:hidden path="active"/>
+
+							<!--  Hidden fields for products-->
+							<sf:hidden path="id" />
+							<sf:hidden path="code" />
+							<sf:hidden path="supplierId" />
+							<sf:hidden path="purchases" />
+							<sf:hidden path="views" />
+							<sf:hidden path="active" />
 
 
 						</div>
