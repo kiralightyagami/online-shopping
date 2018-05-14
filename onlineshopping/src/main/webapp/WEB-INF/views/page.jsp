@@ -77,12 +77,16 @@
 		<!-- JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.js"></script>
-		<!-- Jquery datatble -->
+		<!-- Jquery datatable -->
 		<script src="${js}/jquery.dataTables.js"></script>
 
-		<!--  datatble  bootstrap script-->
+		<!--  datatable  bootstrap script-->
 		<script src="${js}/dataTables.bootstrap.js"></script>
-		<!-- My own coded javascript -->
+		<!--  alert/bootbox  bootstrap script-->
+		<script src="${js}/bootbox.min.js"></script>
+		
+		
+		<!-- My own coded javaScript -->
 		<script src="${js}/myapp.js"></script>
 	</div>
 </body>
