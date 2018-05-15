@@ -74,14 +74,20 @@
 		<%@include file="./shared/footer.jsp"%>
 		<!-- /.container -->
 
-		<!-- JavaScript -->
+		<!-- Jquery -->
 		<script src="${js}/jquery.js"></script>
+		<!-- Jquery validator -->
+		<script src="${js}/jquery.validate.js"></script>
+		
+		<!--Bootstrap core javascript  -->
 		<script src="${js}/bootstrap.js"></script>
-		<!-- Jquery datatable -->
+		
+		<!-- datatable plugin -->
 		<script src="${js}/jquery.dataTables.js"></script>
 
-		<!--  datatable  bootstrap script-->
+		<!--  datatable  bootstrap javscript-->
 		<script src="${js}/dataTables.bootstrap.js"></script>
+		
 		<!--  alert/bootbox  bootstrap script-->
 		<script src="${js}/bootbox.min.js"></script>
 		
