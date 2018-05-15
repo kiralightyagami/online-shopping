@@ -136,8 +136,7 @@
 							<sf:select class="form-control" path="categoryId" id="categoryId"
 								items="${categories}" itemLabel="name" itemValue="id" />
 
-
-
+                    
 
 
 						</div>
@@ -226,4 +225,5 @@
 		</div>
 
 	</div>
+
 </div>
