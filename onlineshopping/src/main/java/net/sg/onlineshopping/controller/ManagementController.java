@@ -57,16 +57,42 @@ public class ManagementController {
 		
 		return mv;
 	}
+	@RequestMapping(value="/{id}/product" ,method=RequestMethod.GET)
+	public ModelAndView showEditProduct(@PathVariable int id) {
+		ModelAndView mv=new ModelAndView("page");
+		
+		mv.addObject("userClickManageProduct", true);
+		mv.addObject("title", "Manage Products");
+		//fetch the product from db
+		Product nProduct=productDAO.get(id);
+		//set the product fetched from db
+		mv.addObject("product", nProduct);
+		
+		
+		
+		return mv;
+	}
+	
+	
 	
 	//handling product submission
 	@RequestMapping(value="/products" ,method=RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct,BindingResult results,Model model,
 			HttpServletRequest request) {
-		//call the validator
 		
+		if(mProduct.getId()==0) {
+		//handle image validation for new product
 		new ProductValidator().validate(mProduct, results);
+		}
+		else
+		{
+			//validate only if there is an image for product
+			if(!mProduct.getFile().getOriginalFilename().equals(""))
+			{
+				new ProductValidator().validate(mProduct, results);	
+			}
+		}
 		//check if there are any errors
-		
 		if(results.hasErrors())
 		{
 			model.addAttribute("userClickManageProduct", true);
@@ -75,7 +101,17 @@ public class ManagementController {
 			return "page";
 		}
 		logger.info(mProduct.toString());
+		
+		//check for update or add
+		if(mProduct.getId()==0) {
+			//create a new record if id=0
 		productDAO.add(mProduct);
+		}
+		else
+		{
+			//else just update the product if id is not 0
+			productDAO.update(mProduct);
+		}
 		
 		//check whether there is file or not
 		if(!mProduct.getFile().getOriginalFilename().equals(""))
@@ -89,6 +125,8 @@ public class ManagementController {
 	@ResponseBody
 	public String handleProductActivation(@PathVariable int id)
 	{
+		//fetch product from database
+		
 		Product product=productDAO.get(id);
 		boolean isActive=product.isActive();
 		
@@ -104,4 +142,7 @@ public class ManagementController {
 	{
 		return categoryDAO.list();
 	}
+	
+	
+	
 }
