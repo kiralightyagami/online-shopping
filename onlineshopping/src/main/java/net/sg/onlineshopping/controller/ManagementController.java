@@ -52,6 +52,10 @@ public class ManagementController {
 			{
 				mv.addObject("message", "Product submitted successfully");
 			}
+			if(operation.equals("category"))
+			{
+				mv.addObject("message", "Category submitted successfully");
+			}
 		}
 		
 		
@@ -136,12 +140,26 @@ public class ManagementController {
 		
 		return (isActive)?"You have successfully deactivated the product"+product.getId():"You have successfully activated the product"+product.getId();
 	}
+	
+	//handle category submission
+	@RequestMapping(value="/category" ,method=RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category) {
+		//add new actegory
+		categoryDAO.add(category);
+		return "redirect:/manage/products?operation=category";
+	}
 	//returning categories for all requests
 	@ModelAttribute("categories")
-	public List<Category> getCategory()
+	public List<Category> getCategories()
 	{
 		return categoryDAO.list();
 	}
+	@ModelAttribute("category")
+	public Category getCategory()
+	{
+		return new Category();
+	}
+	
 	
 	
 	
