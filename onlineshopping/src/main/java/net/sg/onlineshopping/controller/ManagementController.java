@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.sg.onlineshopping.util.FileUploadUtility;
@@ -81,6 +83,20 @@ public class ManagementController {
 			FileUploadUtility.uploadfile(request,mProduct.getFile(),mProduct.getCode());
 		}
 		return "redirect:/manage/products?operation=product";
+	}
+	//actiavtion of product
+	@RequestMapping(value="/product/{id}/activation", method=RequestMethod.POST)
+	@ResponseBody
+	public String handleProductActivation(@PathVariable int id)
+	{
+		Product product=productDAO.get(id);
+		boolean isActive=product.isActive();
+		
+		product.setActive(!product.isActive());
+		
+		productDAO.update(product);
+		
+		return (isActive)?"You have successfully deactivated the product"+product.getId():"You have successfully activated the product"+product.getId();
 	}
 	//returning categories for all requests
 	@ModelAttribute("categories")
