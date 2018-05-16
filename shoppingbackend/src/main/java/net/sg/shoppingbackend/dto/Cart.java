@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+/*import javax.persistence.JoinColumn;*/
 import javax.persistence.OneToOne;
 
 @Entity
@@ -15,7 +15,7 @@ public class Cart {
 	private int id; 
 	//User onetoone mapping
 	@OneToOne
-	@JoinColumn(name="uid")
+	/*@JoinColumn(name="uid")*/
 	private User user;
 	@Column(name="grand_total")
 	private double grandTotal;

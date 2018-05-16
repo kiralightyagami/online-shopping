@@ -27,7 +27,7 @@ public class UserTestCase {
 		context.refresh();
 		userDAO=(UserDAO)context.getBean("userDAO");
 	}
-	@Test
+	/*@Test
 	public void testAdd()
 	{
 		user =new User();
@@ -80,5 +80,36 @@ public class UserTestCase {
 			assertEquals("Failed to add address!",true,userDAO.addAddress(address));
 			
 		}
+	}*/
+	
+	/*@Test
+	public void testAdd()
+	{
+		user =new User();
+		user.setFirstName("hrithik");
+		user.setLastName("roshan");
+		user.setEmail("hr@gmail.com");
+		user.setContactNumber("12456");
+		user.setRole("USER");
+		user.setPassword("123456");
+		if(user.getRole().equals("USER"))
+		{
+			//create cart 
+			cart=new Cart();
+			cart.setUser(user);
+			//attach caret to user
+			user.setCart(cart);
+		}
+		//add user
+				assertEquals("Failed to add user!",true,userDAO.addUser(user));
+	}*/
+	@Test
+	public void testUpadteCart()
+	{
+		user=userDAO.getByEmail("hr@gmail.com");
+		cart=user.getCart();
+		cart.setGrandTotal(5555);
+		cart.setCartLines(2);
+		assertEquals("failded to update cart!",true,userDAO.updateCart(cart));
 	}
 }
