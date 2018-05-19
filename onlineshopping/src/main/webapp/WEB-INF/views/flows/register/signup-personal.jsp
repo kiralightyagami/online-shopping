@@ -23,7 +23,7 @@
 
 								<sf:input type="text" path="firstName" placeholder="First Name"
 									class="form-control" />
-								<%-- <sf:errors path="name" cssClass="help-block" element="em" /> --%>
+								<sf:errors path="firstName" cssClass="help-block" element="em" />
 								<!-- <em
 								class="help-block">Please enter Product name!</em> -->
 
@@ -40,7 +40,7 @@
 
 								<sf:input type="text" path="lastName" placeholder="Last Name"
 									class="form-control" />
-								<%-- <sf:errors path="brand" cssClass="help-block" element="em" /> --%>
+								<sf:errors path="lastName" cssClass="help-block" element="em" />
 								<!-- <em
 								class="help-block">Please enter Brand Name!</em> -->
 
@@ -56,7 +56,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="email" placeholder="abc@xys.com"
 									class="form-control" />
-								<%-- <sf:errors path="description" cssClass="help-block" element="em" /> --%>
+								 <sf:errors path="email" cssClass="help-block" element="em" /> 
 
 
 							</div>
@@ -71,7 +71,7 @@
 
 								<sf:input type="text" path="contactNumber"
 									placeholder="XXXXXXXXX" maxlength="10" class="form-control" />
-								<%-- <sf:errors path="unitPrice" cssClass="help-block" element="em" /> --%>
+								<sf:errors path="contactNumber" cssClass="help-block" element="em" /> 
 
 
 							</div>
@@ -86,6 +86,22 @@
 
 								<sf:input type="password" path="password" placeholder="Password"
 									class="form-control" />
+									<sf:errors path="password" cssClass="help-block" element="em" />
+
+
+							</div>
+
+						</div>
+						
+						<div class="form-group">
+
+							<label class="control-label col-md-4">Confirm Password</label>
+
+							<div class="col-md-8">
+
+								<sf:input type="password" path="confirmPassword" placeholder="Re-enter Password"
+									class="form-control" />
+									<sf:errors path="confirmPassword" cssClass="help-block" element="em" />
 
 
 							</div>
