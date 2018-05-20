@@ -108,6 +108,16 @@ public class PageController {
 	  mv.addObject("userClickShowProduct",true);
 	  return mv;
   }
+  
+  @RequestMapping(value="/login")
+  public ModelAndView login()
+  {
+	  ModelAndView mv=new ModelAndView("login");
+	  
+	  mv.addObject("title","Login");
+	
+	  return mv;
+  }
 }
 
 

@@ -261,7 +261,48 @@ $(function() {
 	//------------------------------
 	
 	//validation code for category
-	 var $categoryForm=$('#categoryForm');
+	 var $loginForm=$('#loginForm');
+	 if($loginForm.length)
+		 {
+		 
+		 $loginForm.validate({
+			 
+			 rules:{
+				 
+				 username:{
+					 
+					 required:true,
+					 email:true
+				 },
+				 
+				 password:{
+					 required:true
+				 }
+			 },
+			 
+			 messages:{
+				 username:{
+					 required:'Please enter the User Name!',
+					 email:'Please enter valid email address!'
+				 },
+				 description:{
+					 required:'Please enter password!'
+				 }
+			 },
+			 errorElement:'em',
+			 errorPlacement:function(error,element){
+				 //add class for help-block
+				 error.addClass('help-block');
+				 //place the error after the input elememnt
+				 error.insertAfter(element);
+			 }
+			 
+		 });
+		 }
+//-------------------------------------------------------
+	 
+		//validation code for login
+	 var $categoryForm=$('#');
 	 if($categoryForm.length)
 		 {
 		 
@@ -299,6 +340,6 @@ $(function() {
 			 
 		 });
 		 }
-//-------------------------------------------------------
+	 //----------------------------------------------------
 	
 });
