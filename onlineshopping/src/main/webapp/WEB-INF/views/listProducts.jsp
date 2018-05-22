@@ -53,7 +53,6 @@
 				<div class="col=xs-12">
 				<!-- To make datatble responsive -->
 				<div class="container-fluid">
-				
 				<div class="table-responsive">
 						<table id="productListTable"
 								class="table table-striped table-bordered">

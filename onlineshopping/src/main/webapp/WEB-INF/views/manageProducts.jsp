@@ -140,6 +140,7 @@
                     <div class="text-right">
                     <br/>
                     
+                    
                     <button type="button" data-toggle="modal" data-target="#myCategoryModal" class="btn btn-warning btn-xs">Add Category</button>
                     </div>
                     </c:if>
