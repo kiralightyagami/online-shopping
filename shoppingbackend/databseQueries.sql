@@ -29,15 +29,16 @@ CREATE TABLE user_detail (
 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Virat', 'Kohli', 'ADMIN', true, '$2y$12$Sm4RJZ7NGw2Fvr2vpkWVF.n21wAY8UjfM.bH/0It.a7qHDP2y7IGa', 'vk@gmail.com', '8888888888');
+VALUES ('Virat', 'Kohli', 'ADMIN', true, '1234', 'vk@gmail.com', '8888888888');
 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Ravindra', 'Jadeja', 'SUPPLIER', true, '$2y$12$4EVrRXH3XXxTQ5UurIcGQuYDLAVi6qR0N4F5c0UpdHLlifrqbvL36', 'rj@gmail.com', '9999999999');
+VALUES ('Ravindra', 'Jadeja', 'USER', true, '1234', 'rj@gmail.com', '9999999999');
 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Ravichandra', 'Ashwin', 'SUPPLIER', true, '$2y$12$LrUfLy3zbXM7ZTp48KDeaOklkxijw.Sfrg5FpLzikeAWRT/ixly0m', 'ra@gmail.com', '7777777777');
+VALUES ('Ravichandra', 'Ashwin', 'SUPPLIER', true, '1234', 'ra@gmail.com', '7777777777');
+
 
 
 CREATE TABLE product (
