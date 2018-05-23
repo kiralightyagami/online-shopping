@@ -70,6 +70,10 @@
 			<c:if test="${userClickManageProduct ==true}">
 				<%@include file="manageProducts.jsp"%>
 			</c:if>
+			<!-- When user click show a cart-->
+			<c:if test="${userClickShowCart ==true}">
+				<%@include file="cart.jsp"%>
+			</c:if>
 			<!-- /.container -->
 		</div>
 		<!-- Footer -->
