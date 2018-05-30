@@ -97,7 +97,6 @@ public class CartLineDAIOImpl implements CartLineDAO {
 	@Override
 	public boolean updateCart(Cart cart) {
 		try {
-			
 			sessionFactory.getCurrentSession().update(cart);
 			return true;
 		} catch (Exception ex) {
