@@ -36,6 +36,12 @@ public class CartController {
 			case "added":
 				mv.addObject("message","CartLine has been added successfully");
 				break;
+			case "unavailable":
+				mv.addObject("message","Product quantity is not available");
+				break;
+			case "maximum":
+				mv.addObject("message","CartLine has reahced to maximum count");
+				break;
 						
 			}
 		}
