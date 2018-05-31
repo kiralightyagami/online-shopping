@@ -48,6 +48,7 @@ public class CartController {
 		
 		mv.addObject("title", "User Cart");
 		mv.addObject("userClickShowCart", true);
+		//System.out.println(cartService.getCartLines()+"*********************************");
 		mv.addObject("cartLines",cartService.getCartLines());
 		
 		return mv;
